@@ -1,0 +1,146 @@
+/* Base reset */
+:root {
+    --bg-color: #faf0e6;
+    --text-color: #333;
+    --banner-text-color: #fff;
+    --primary-brown: #96684d;
+    --secondary-brown: #c78566;
+    --content-bg: #fff8ef;
+    --shadow-light: rgba(0,0,0,0.1);
+    --shadow-lighter: rgba(0,0,0,0.08);
+    --date-color: #777;
+    --input-border: #ccc;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Georgia', 'Palatino Linotype', Palatino, serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Banner */
+.banner {
+    /* brown gradient with optional image overlay */
+    background:url('../media/pictures/banner.png') center/cover no-repeat;
+    background-blend-mode: overlay;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--banner-text-color);
+}
+.banner h1 {
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Navigation */
+nav {
+    background: var(--primary-brown);
+    box-shadow: 0 2px 4px var(--shadow-light);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+nav li {
+    margin: 0 1em;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75em 1.25em;
+    display: block;
+    border-radius: 20px;
+    transition: background 0.3s;
+}
+nav a:hover {
+    background: var(--secondary-brown);
+}
+
+main {
+    padding: 1em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Episodes */
+#episodes article {
+    background: var(--content-bg);
+    margin-bottom: 1.5em;
+    padding: 1.5em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-lighter);
+}
+#episodes img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 0.5em 0;
+}
+#episodes .date {
+    font-size: 0.9rem;
+    color: var(--date-color);
+}
+
+/* Comments */
+#comment-form {
+    background: var(--content-bg);
+    padding: 1em;
+    border-radius: 10px;
+    margin-bottom: 1em;
+}
+#comment-form label {
+    display: block;
+    margin-bottom: 0.25em;
+    font-weight: bold;
+}
+#comment-form input[type="text"],
+#comment-form input[type="email"],
+#comment-form textarea {
+    width: 100%;
+    padding: 0.5em;
+    margin-bottom: 0.75em;
+    border: 1px solid var(--input-border);
+    border-radius: 3px;
+}
+#comment-form button {
+    background: var(--primary-brown);
+    color: #fff;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#comment-form button:hover {
+    background: var(--secondary-brown);
+}
+
+/* Comment entries */
+.comment-entry {
+    background: var(--content-bg);
+    padding: 0.75em;
+    margin-bottom: 0.5em;
+    border-left: 3px solid var(--primary-brown);
+}
+.comment-entry p {
+    margin: 0.25em 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em;
+    background: var(--primary-brown);
+    color: var(--banner-text-color);
+    margin-top: 2em;
+    box-shadow: 0 -2px 4px var(--shadow-light);
+}

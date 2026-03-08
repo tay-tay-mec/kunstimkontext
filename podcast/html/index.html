@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Kunst im Kontext</title>
+</head>
+<body>
+    <header class="banner">
+        <h1>Kunst im Kontext</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#episodes">Episoden</a></li>
+            <li><a href="#comments">Kommentare</a></li>
+            <li><a href="#about">Über uns</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="episodes">
+            <h2>Neueste Episoden</h2>
+            <article>
+                <h3>Episode 1: Mona Lisa</h3>
+                <p class="date">Veröffentlicht am 1. März 2026</p>
+                <img src="../media/pictures/episode1.jpg" alt="Episode 1">
+                <p>Findet herraus was sich hinter der mona lisa verbirgt.</p>
+                <audio controls>
+                    <source src="../media/audio/episode1.mp3" type="audio/mpeg">
+                    Ihr Browser unterstützt kein Audio.
+                </audio>
+            </article>
+
+            <article>
+                <h3>Episode 2: Die Geburt der Venus</h3>
+                <p class="date">Veröffentlicht am 8. März 2026</p>
+                <img src="../media/pictures/episode2.jpg" alt="Episode 2">
+                <p>Entdecken Sie die Mythen und Symbole hinter Botticelli's berühmter Gemälde.</p>
+                <audio controls>
+                    <source src="../media/audio/episode2.mp3" type="audio/mpeg">
+                    <p>Ihr Browser unterstützt kein Audio.</p>
+                </audio>
+            </article>
+        </section>
+
+        <section id="comments">
+            <h2>Kommentare</h2>
+            <form id="comment-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="comment">Kommentar:</label>
+                <textarea id="comment" name="comment" required></textarea>
+
+                <button type="submit">Absenden</button>
+            </form>
+
+            <div id="comment-list">
+                <p>Keine Kommentare vorhanden. Sei der Erste!</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>Über uns</h2>
+            <p>"Kunst im Kontext" ist ein Podcast, der sich mit verschiedenen Strömungen der Kunstgeschichte beschäftigt. Wir bringen Künstler, Historiker und Kunstliebhaber zusammen, um tief in die Werke einzutauchen.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Kunst im Kontext. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        document.getElementById('comment-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            const name = this.name.value.trim();
+            const comment = this.comment.value.trim();
+            if (!name || !comment) return;
+
+            const list = document.getElementById('comment-list');
+            // remove placeholder text if present
+            const placeholder = list.querySelector('p');
+            if (placeholder && placeholder.textContent.includes('Keine Kommentare')) {
+                list.innerHTML = '';
+            }
+
+            const entry = document.createElement('div');
+            entry.className = 'comment-entry';
+            entry.innerHTML = `
+                <p><strong>${name}:</strong></p>
+                <p>${comment}</p>
+            `;
+
+            list.appendChild(entry);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
